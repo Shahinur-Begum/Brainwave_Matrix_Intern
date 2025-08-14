@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Calendar - My To-Do List</title>
+  <link rel="stylesheet" href="calendar.css" />
+</head>
+<body>
+
+<nav>
+  <div class="logo"><strong>  My To-Do List</strong></div>
+  <div class="menu">
+    <a href="../taskPage/task.html" id="tasks-link">Tasks</a>
+    <a href="../profile/profile.html" id="profile-link">Profile</a>
+    <button id="dark-mode-toggle" aria-label="Toggle Dark Mode">🌙</button>
+    <a href="../welcome/welcome.html" id="logout-link" class="logout-link">Logout</a>
+  </div>
+</nav>
+
+<main>
+  <br>
+  <h1 style="padding-left: 30px;">My To-Do List Calendar</h1>
+
+  <div class="calendar-container">
+    <div class="calendar-header">
+      <button class="nav-btn" id="prev-month">&#8592; Prev</button>
+      <div class="month-year" id="monthYear"></div>
+      <button class="nav-btn" id="next-month">Next &#8594;</button>
+    </div>
+    <div class="days-row">
+      <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
+    </div>
+    <div class="calendar-grid" id="calendarGrid"></div>
+  </div>
+
+  <div class="tasks-container" id="tasksContainer">
+    <h2>Tasks for <span id="selectedDate">Select a date</span></h2>
+
+    <div id="tasksList" class="tasks-list">
+      <p class="no-tasks">No date selected.</p>
+    </div>
+
+    <div class="task-input-container" id="taskInputContainer" style="display: none;">
+      <input type="text" id="newTaskInput" placeholder="Enter new task..." aria-label="New task input" />
+      <button id="addTaskBtn">Add Task</button>
+    </div>
+  </div>
+</main>
+
+<script src="calendar.js"></script>
+</body>
+</html>

@@ -1,0 +1,349 @@
+/* Reset and base styles */
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: url('1.jpg') no-repeat center center fixed;
+  background-size: cover;
+  margin: 0;
+  padding-top: 0;
+  color: #2c3e50;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  backdrop-filter: brightness(0.9);
+}
+
+/* Dark Mode */
+body.dark {
+  background: #1e1e1e;
+  color: #eee;
+}
+
+/* Root variables for color schemes */
+:root {
+  --primary-color: #3498db; /* default blue */
+  --font-size: 16px; /* default medium */
+}
+
+/* Color schemes */
+body.theme-blue {
+  --primary-color: #3498db;
+}
+body.theme-green {
+  --primary-color: #2ecc71;
+}
+body.theme-purple {
+  --primary-color: #9b59b6;
+}
+body.theme-orange {
+  --primary-color: #e67e22;
+}
+
+/* Font sizes */
+body.font-small {
+  --font-size: 14px;
+}
+body.font-medium {
+  --font-size: 16px;
+}
+body.font-large {
+  --font-size: 18px;
+}
+
+body {
+  font-size: var(--font-size);
+}
+
+/* Navigation Bar */
+nav {
+  background-color: rgba(44, 62, 80, 0.85);
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+  width: 100%;
+  max-width: 2300px;
+  margin: 0 auto 1rem auto;
+  border-radius: 16px;
+  box-sizing: border-box;
+  user-select: none;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark nav {
+  background-color: rgba(22, 28, 34, 0.9);
+  color: #ddd;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+
+nav .logo {
+  font-size: 1.3rem;
+  letter-spacing: 1.2px;
+  font-weight: 700;
+  color: white;
+}
+
+nav .menu {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+nav .menu a,
+nav .menu button,
+nav .menu .logout-link {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  padding: 0.3rem 0.7rem;
+  border-radius: 6px;
+  position: relative;
+  transition: color 0.3s ease, background-color 0.25s ease;
+}
+
+body.dark nav .menu a,
+body.dark nav .menu button,
+body.dark nav .menu .logout-link {
+  color: #ccc;
+}
+
+nav .menu a:hover,
+nav .menu button:hover,
+nav .menu .logout-link:hover {
+  color: #3498db;
+  background-color: transparent;
+}
+
+body.dark nav .menu a:hover,
+body.dark nav .menu button:hover,
+body.dark nav .menu .logout-link:hover {
+  color: #1abc9c;
+}
+
+nav .menu a::after,
+nav .menu .logout-link::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: #3498db;
+  transition: width 0.3s ease;
+}
+
+nav .menu a:hover::after,
+nav .menu .logout-link:hover::after {
+  width: 100%;
+}
+
+/* Dark mode toggle switch - same as calendar page */
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 42px;
+  height: 22px;
+  margin: 0 6px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: #ccc;
+  transition: 0.3s;
+  border-radius: 22px;
+  box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  transition: 0.3s;
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+}
+
+input:checked + .slider {
+  background-color: #1abc9c;
+}
+
+input:checked + .slider:before {
+  transform: translateX(20px);
+}
+
+/* Dark mode toggle accessibility focus */
+.switch input:focus + .slider {
+  box-shadow: 0 0 3px 2px #1abc9c;
+}
+
+/* Main Title */
+h1 {
+  margin-bottom: 2rem;
+  font-weight: 700;
+  color: white;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+}
+
+h2 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+/* Containers */
+.profile-container, .theme-container, .chart-container {
+  background: rgba(255 255 255 / 0.65);
+  padding: 3rem 4rem; /* increased padding */
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  max-width: 900px; /* increased max-width */
+  width: 100%;
+  margin-bottom: 2.5rem;
+}
+
+/* Labels and inputs */
+label {
+  display: flex;
+  align-items: center;
+  margin-top: 1.2rem;
+  font-weight: 600;
+  gap: 0.5rem;
+  color: #2c3e50;
+  position: relative;
+  font-size: 1.1rem;
+}
+
+input[type="text"], input[type="email"], input[type="tel"], select {
+  width: 100%;
+  padding: 0.85rem 1.3rem;
+  margin-top: 0.4rem;
+  border-radius: 8px;
+  border: 2.5px solid var(--primary-color);
+  font-size: 1.1rem;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+  font-weight: 500;
+}
+
+input[type="text"]:focus, input[type="email"]:focus, input[type="tel"]:focus, select:focus {
+  outline: none;
+  border-color: #1d4f91;
+  background: #eaf4fc;
+}
+
+/* Button */
+button#save-btn {
+  margin-top: 2.5rem;
+  padding: 1rem 2.5rem;
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: 700;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.12);
+}
+button#save-btn:hover {
+  background-color: #2980b9;
+}
+
+/* Help tooltip */
+.help-tooltip {
+  cursor: help;
+  color: var(--primary-color);
+  font-weight: 700;
+  border-bottom: 1px dotted var(--primary-color);
+  user-select: none;
+  font-size: 1.3rem;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #d6eaff;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.help-tooltip:focus,
+.help-tooltip:hover {
+  color: #0a3a6f;
+  background: #a6d1ff;
+  outline: none;
+  box-shadow: 0 0 8px #3b82f6;
+}
+
+/* Chart section */
+.charts-row {
+  display: flex;
+  gap: 3rem;
+  justify-content: center;
+  flex-wrap: nowrap;
+}
+
+.charts-row > div {
+  flex: 1 1 450px; /* bigger minimum width */
+  max-width: 480px; /* slightly bigger max width */
+  background: rgba(255 255 255 / 0.95);
+  padding: 2.5rem;
+  border-radius: 18px;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.12);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.charts-row > div canvas {
+  width: 100% !important;
+  height: 240px !important;
+  max-width: 460px;
+  border-radius: 12px;
+}
+
+/* Center and adjust chart description */
+.chart-desc {
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: #555;
+  text-align: center;
+  font-weight: 600;
+  max-width: 460px;
+}
+
+/* Responsive */
+@media (max-width: 920px) {
+  .charts-row {
+    flex-wrap: wrap;
+  }
+  .charts-row > div {
+    max-width: 100%;
+    flex: 1 1 100%;
+  }
+}

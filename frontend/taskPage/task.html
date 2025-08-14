@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My To-Do List - Tasks</title>
+  <link rel="stylesheet" href="task.css" />
+</head>
+<body>
+
+<nav>
+  <div class="logo"><strong>My To-Do List</strong></div>
+  <div class="menu">
+    <a href="#" id="profile-link">Profile</a>
+    <a href="#" id="calendar-link">Calendar</a>
+    <button id="dark-mode-toggle" aria-label="Toggle Dark Mode">🌙</button>
+    <a href="#" id="logout-link" class="logout-link">Logout</a>
+  </div>
+</nav>
+
+<main>
+  <h1>Your Tasks</h1>
+
+  <div class="summary" id="summary">
+    <div>Total Tasks: <span id="total-tasks">0</span></div>
+    <div>Done: <span id="done-tasks">0</span></div>
+    <div>Overdue: <span id="overdue-tasks">0</span></div>
+    <div>Upcoming: <span id="upcoming-tasks">0</span></div>
+  </div>
+
+  <form id="quick-add">
+    <label for="task-input">Task Description</label>
+    <input type="text" id="task-input" placeholder="What do you need to do?" required />
+
+    <label for="due-date">Due Date <small>(optional)</small></label>
+    <input type="date" id="due-date" />
+
+    <label for="category">Category</label>
+    <select id="category">
+      <option value="General" selected>General</option>
+      <option value="Work">Work</option>
+      <option value="Personal">Personal</option>
+      <option value="Study">Study</option>
+      <option value="Health">Health</option>
+    </select>
+
+    <label for="priority">Emergency Level</label>
+    <select id="priority">
+      <option value="" selected>Select your priority</option>
+      <option value="Chill">Chill (Low priority)</option>
+      <option value="Important">Important (Medium priority)</option>
+      <option value="Urgent">Urgent (High priority)</option>
+    </select>
+
+    <label for="recurring">Recurring</label>
+    <select id="recurring">
+      <option value="none" selected>None</option>
+      <option value="daily">Daily</option>
+      <option value="weekly">Weekly</option>
+      <option value="monthly">Monthly</option>
+    </select>
+
+    <button type="submit">Add Task</button>
+  </form>
+
+  <div class="controls">
+    <input type="search" id="search-input" placeholder="Search tasks..." aria-label="Search tasks" />
+    <button id="clear-completed-btn" title="Clear all completed tasks">Clear Completed</button>
+  </div>
+
+  <ul id="task-list" aria-live="polite" aria-relevant="additions removals">
+    <!-- Tasks will appear here -->
+  </ul>
+</main>
+
+<script src="task.js"></script>
+</body>
+</html>

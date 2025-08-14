@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>User Profile - My To-Do List</title>
+  <link rel="stylesheet" href="profile.css" />
+</head>
+<body>
+
+  <nav aria-label="Primary navigation">
+    <div class="logo" tabindex="0">My To-Do List</div>
+    <div class="menu">
+      <a href="../taskPage/task.html" tabindex="0">Tasks</a>
+      <a href="../calendar/calendar.html" tabindex="0">Calendar</a>
+      <button id="dark-mode-toggle" aria-label="Toggle Dark Mode">🌙</button>
+      <a href="../welcome/welcome.html" id="logout-link" class="logout-link">Logout</a>
+    </div>
+  </nav>
+
+  <h1>User Profile</h1>
+
+  <section class="profile-container" aria-label="User profile information">
+    <label for="name">
+      Full Name
+      <span class="help-tooltip" tabindex="0" aria-label="Your full name as it appears in the system.">❔</span>
+    </label>
+    <input type="text" id="name" value="Marin Shahinur" />
+
+    <label for="email">
+      Email Address
+      <span class="help-tooltip" tabindex="0" aria-label="Your email used for login and notifications.">❔</span>
+    </label>
+    <input type="email" id="email" value="marin@example.com" />
+
+    <label for="phone">
+      Phone Number
+      <span class="help-tooltip" tabindex="0" aria-label="Your contact phone number. Optional but useful.">❔</span>
+    </label>
+    <input type="tel" id="phone" value="+880 1234 567890" />
+
+    <button id="save-btn">Save Changes</button>
+  </section>
+
+  <section class="theme-container" aria-label="Theme customization">
+    <h2>Theme Customization</h2>
+    <label for="colorScheme">Color Scheme
+      <span class="help-tooltip" tabindex="0" aria-label="Pick your preferred primary color theme.">❔</span>
+    </label>
+    <select id="colorScheme">
+      <option value="blue" selected>Blue</option>
+      <option value="green">Green</option>
+      <option value="purple">Purple</option>
+      <option value="orange">Orange</option>
+    </select>
+
+    <label for="fontSize">Font Size
+      <span class="help-tooltip" tabindex="0" aria-label="Choose your preferred font size for accessibility.">❔</span>
+    </label>
+    <select id="fontSize">
+      <option value="small">Small</option>
+      <option value="medium" selected>Medium</option>
+      <option value="large">Large</option>
+    </select>
+  </section>
+
+  <section class="chart-container" aria-label="Detailed task status charts">
+    <h2>Task Stats Overview</h2>
+    <div class="charts-row">
+      <div>
+        <canvas id="mainTaskChart" aria-describedby="chart-desc-main"></canvas>
+        <p id="chart-desc-main" class="chart-desc">
+          Overview of tasks: Due, Completed, Overdue.
+        </p>
+      </div>
+      <div>
+        <canvas id="categoryChart" aria-describedby="chart-desc-category"></canvas>
+        <p id="chart-desc-category" class="chart-desc">
+          Tasks by Category.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="profile.js"></script>
+</body>
+</html>

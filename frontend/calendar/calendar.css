@@ -1,0 +1,349 @@
+/* Reset & Base */
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding-top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  background: url('4.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #2c3e50;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark Mode */
+body.dark {
+  background: #1e1e1e;
+  color: #eee;
+}
+
+/* Navigation Bar - UPDATED STYLE ONLY */
+nav {
+  background-color: rgba(44, 62, 80, 0.85);
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+  width: 100%;
+  /*max-width: 850px; /* wider width */
+  /*margin: 0 auto 1rem auto;*/
+  border-radius: 16px;
+  box-sizing: border-box;
+  user-select: none;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark nav {
+  background-color: rgba(22, 28, 34, 0.9);
+  color: #ddd;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+
+nav .logo {
+  font-size: 1.3rem;
+  letter-spacing: 1.2px;
+  font-weight: 700;
+  color: white;
+}
+
+nav .menu {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+nav .menu a,
+nav .menu button,
+nav .menu .logout-link {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  padding: 0.3rem 0.7rem;
+  border-radius: 6px;
+  position: relative;
+  transition: color 0.3s ease, background-color 0.25s ease;
+}
+
+body.dark nav .menu a,
+body.dark nav .menu button,
+body.dark nav .menu .logout-link {
+  color: #ccc;
+}
+
+nav .menu a:hover,
+nav .menu button:hover,
+nav .menu .logout-link:hover {
+  color: #3498db;
+  background-color: transparent;
+}
+
+body.dark nav .menu a:hover,
+body.dark nav .menu button:hover,
+body.dark nav .menu .logout-link:hover {
+  color: #1abc9c;
+}
+
+nav .menu a::after,
+nav .menu .logout-link::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: #3498db;
+  transition: width 0.3s ease;
+}
+
+nav .menu a:hover::after,
+nav .menu .logout-link:hover::after {
+  width: 100%;
+}
+
+/* Dark mode toggle button */
+#dark-mode-toggle {
+  background: transparent;
+  border: none;
+  font-size: 1.4rem;
+  color: white;
+  cursor: pointer;
+  padding: 0 0.3rem;
+  transition: color 0.3s ease;
+}
+
+body.dark #dark-mode-toggle {
+  color: #1abc9c;
+}
+
+/* Main Title */
+main h1 {
+  margin: 0 0 1rem 0;
+  color: #3498db;
+  max-width: 850px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Calendar Container */
+.calendar-container {
+  background: rgba(255, 255, 255, 0.85);
+  padding: 2rem;
+  border-radius: 18px;
+  max-width: 900px;
+  width: 110%;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  margin-bottom: 1.5rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark .calendar-container {
+  background: rgba(40, 40, 40, 0.75);
+  color: #eee;
+}
+
+/* Calendar Header */
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.month-year {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #3498db;
+}
+
+.nav-btn {
+  background: #3498db;
+  color: white;
+  padding: 0.4rem 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+}
+
+.nav-btn:hover {
+  background: #2980b9;
+}
+
+/* Days Row */
+.days-row {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #555;
+}
+
+/* Calendar Grid */
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+}
+
+.calendar-grid div {
+  padding: 1rem 0;
+  text-align: center;
+  border-radius: 12px;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.calendar-grid .inactive {
+  color: #aaa;
+  cursor: default;
+}
+
+.calendar-grid .today {
+  background-color: #3498db;
+  color: white;
+}
+
+.calendar-grid div:not(.inactive):hover {
+  background-color: #3498db;
+  color: white;
+}
+
+.calendar-grid .has-task {
+  box-shadow: 0 0 0 3px #27ae60;
+}
+
+.calendar-grid .selected {
+  background-color: #27ae60;
+  color: white;
+}
+
+/* Tasks Section */
+.tasks-container {
+  max-width: 900px;
+  width: 110%;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 1.5rem;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark .tasks-container {
+  background: rgba(40, 40, 40, 0.95);
+  color: #eee;
+}
+
+.tasks-container h2 {
+  margin-top: 0;
+  color: #27ae60;
+}
+
+.tasks-list {
+  min-height: 60px;
+  margin-bottom: 1rem;
+}
+
+.task-item {
+  margin-bottom: 0.5rem;
+  padding: 0.4rem 0.8rem;
+  background: #27ae60;
+  color: white;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+  transition: background-color 0.3s ease;
+}
+
+.task-item button {
+  background: #e74c3c;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+}
+
+.task-item button:hover {
+  background-color: #c0392b;
+}
+
+.no-tasks {
+  font-style: italic;
+  color: #888;
+  user-select: none;
+}
+
+/* Task Input */
+.task-input-container {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.task-input-container input {
+  flex: 1;
+  padding: 0.4rem;
+  font-size: 1rem;
+  border: 2px solid #27ae60;
+  border-radius: 6px;
+  transition: border-color 0.3s ease;
+}
+
+.task-input-container input:focus {
+  outline: none;
+  border-color: #1e8449;
+}
+
+.task-input-container button {
+  padding: 0.4rem 1rem;
+  background: #27ae60;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.25s ease;
+}
+
+.task-input-container button:hover {
+  background-color: #1e8449;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  body {
+    padding: 0.5rem;
+  }
+  nav {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.5rem;
+  }
+  nav .menu {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.6rem;
+  }
+  .calendar-container, .tasks-container, main h1 {
+    max-width: 100%;
+  }
+  .calendar-header {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}

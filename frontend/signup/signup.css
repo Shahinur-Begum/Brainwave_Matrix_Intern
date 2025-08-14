@@ -1,0 +1,127 @@
+/* Background and layout - keep as is */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-image: url('/sign.avif'); /* Change this path to your image */
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
+  width: 100%;
+  max-width: 400px;
+  color: #fff;
+}
+
+.signup-box h2 {
+  text-align: center;
+  margin-bottom: 24px;
+  color: #fff;
+}
+
+.signup-box input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 16px;
+  border: 1px solid #555;
+  border-radius: 8px;
+  font-size: 16px;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #000;
+}
+
+.signup-box input::placeholder {
+  color: #666;
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px rgba(255, 255, 255, 0.9) inset !important;
+  -webkit-text-fill-color: #000 !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+input:-moz-autofill {
+  box-shadow: 0 0 0 1000px rgba(255, 255, 255, 0.9) inset !important;
+  -moz-text-fill-color: #000 !important;
+}
+
+.signup-box button {
+  width: 100%;
+  padding: 12px;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.signup-box button:hover {
+  background-color: #45a049;
+}
+
+.login-link {
+  text-align: center;
+  margin-top: 16px;
+  font-size: 14px;
+  color: #ccc;
+}
+
+.login-link a {
+  color: #66b2ff;
+  text-decoration: none;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+}
+
+/* Floating popup message styles */
+.popup-message {
+  position: fixed;
+  top: -60px; /* start hidden above the viewport */
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 14px 25px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  color: white;
+  opacity: 0;
+  z-index: 9999;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  backdrop-filter: blur(8px);
+  transition: top 0.3s ease, opacity 0.3s ease;
+}
+
+/* When popup is visible */
+.popup-message.show {
+  top: 20px; /* slide down into view */
+  opacity: 1;
+}
+
+/* Success style */
+.popup-message.success {
+  background: linear-gradient(135deg, #4caf50, #087f23);
+  border: 1px solid #1b5e20;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+  box-shadow: 0 0 15px #087f2388;
+}
+
+/* Error style */
+.popup-message.error {
+  background: linear-gradient(135deg, #ff6b6b, #d32f2f);
+  border: 1px solid #b71c1c;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+  box-shadow: 0 0 15px #d32f2f88;
+}
