@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Add Product - StudentMarket</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">🎓 StudentMarket</div>
+    <nav>
+      <a href="indexs.html">Home</a>
+    </nav>
+  </header>
+
+  <div class="page-bg" style="background-image: url('/img/add\ product.webp');">
+    <main class="container">
+      <h1>Add New Product</h1>
+
+      <div class="card">
+        <form id="addProductForm">
+          <label>Title</label>
+          <input id="prodTitle" type="text" class="input" required />
+
+          <label>Category</label>
+          <select id="prodCategory" class="input" required>
+            <option value=""> Select The Category </option>
+            <option value="Books">Books</option>
+            <option value="Electronics">Electronics</option>
+            <option value="Stationary">Stationary</option>
+            <option value="Notes">Notes</option>
+          </select>
+
+          <label>Description</label>
+          <textarea id="prodDesc" class="input" rows="4"></textarea>
+
+          <label>Price</label>
+          <input id="prodPrice" type="number" class="input" required />
+
+          <label>Condition</label>
+          <select id="prodCondition" class="input">
+            <option>New</option>
+            <option>Used</option>
+          </select>
+
+          <label>Image</label>
+          <input id="prodImage" type="file" accept="image/*" class="input" required />
+
+          <div style="margin-top:10px;">
+            <button type="submit">Add Product</button>
+          </div>
+        </form>
+      </div>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

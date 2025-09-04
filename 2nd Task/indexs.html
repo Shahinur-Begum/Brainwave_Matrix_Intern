@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Marketplace</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">🎓 StudentMarket</div>
+    <nav id="navbarLinks">
+      <!-- links will be injected dynamically -->
+    </nav>
+  </header>
+
+  <div class="page-bg" style="background-image: url('/img/pro.jpg');">
+    <div class="container">
+      <h1>Buy, Sell, Exchange – Right on Campus!</h1>
+      <p>Find books, electronics, notes, and more from your peers.</p>
+      
+      <div class="grid category-cards">
+        <div class="card" data-category="Books">📚 Books</div>
+        <div class="card" data-category="Electronics">💻 Electronics</div>
+        <div class="card" data-category="Stationery">✏️ Stationery</div>
+        <div class="card" data-category="Notes">📝 Notes</div>
+        <div class="card" data-category="All">🌍 All</div>
+      </div>
+
+      <h2>Featured Listings</h2>
+      <div id="featured" class="grid"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      loadFeaturedListings();
+      updateNavbar();
+      addActionGuards();
+      setupCategoryFilter(); // new filter setup
+    });
+  </script>
+</body>
+</html>
