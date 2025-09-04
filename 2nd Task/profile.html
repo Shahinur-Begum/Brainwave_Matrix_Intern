@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="navbar">
+  <div class="logo">🎓 StudentMarket</div>
+  <nav>
+    <a href="indexs.html">Home</a>
+    <a href="browse.html">Browse</a>
+    <a href="add-product.html">Add Product</a>
+    <a href="cart.html">Cart</a>
+  </nav>
+</header>
+
+<div class="page-bg" style="background-image: url('info.jpg');">
+  <div class="container">
+    <h1>My Profile</h1>
+    <div id="profileInfo" class="card">
+      <form id="profileForm">
+        <label>Name:</label>
+        <input type="text" id="profileName" required><br><br>
+
+        <label>University ID:</label>
+        <input type="text" id="profileUniId" required><br><br>
+
+        <label>Email:</label>
+        <input type="email" id="profileEmail" required disabled><br><br>
+
+        <button type="submit">Update Profile</button>
+      </form>
+    </div>
+
+    <h2>My Listings</h2>
+    <table border="1" width="100%" cellspacing="0" cellpadding="10" id="studentListings"></table>
+  </div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
