@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Admin Dashboard - StudentMarket</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="page-bg" style="background-image: url('adash.avif');">
+    <header class="navbar">
+      <div class="logo">📊 Admin Panel</div>
+      <nav>
+        <a href="admin-listings.html">Manage Listings</a>
+        <a href="admin-users.html">Manage Users</a>
+        <a href="admin-approved.html">Approved Listings</a>
+        <a href="admin-orders.html">Orders</a>
+        <a href="indexs.html" id="adminLogout">Logout</a>
+      </nav>
+    </header>
+
+    <main class="container">
+      <h1>Welcome, Admin</h1>
+      <p>Manage the Student Marketplace from here.</p>
+
+      <div class="grid dashboard-cards">
+        <div class="card">
+          👨‍🎓 Total Students: <span id="totalStudents">0</span>
+        </div>
+        <div class="card">
+          🛍️ Total Listings: <span id="totalListings">0</span>
+        </div>
+        <div class="card">
+          🕒 Pending Items: <span id="pendingItems">0</span>
+        </div>
+        <div class="card">
+          📦 Orders Placed: <span id="ordersPlaced">0</span>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

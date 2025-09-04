@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page-bg" style="background-image: url('3.jpg');">
+    <div class="container">
+      <h1>🔑 Admin Login</h1>
+      <div class="card">
+        <input type="text" id="adminUser" placeholder="Username" class="input"><br><br>
+        <input type="password" id="adminPass" placeholder="Password" class="input"><br><br>
+        <button id="adminLoginBtn">Login</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    // Attach login event after DOM is ready
+    document.getElementById('adminLoginBtn').addEventListener('click', function() {
+      const user = document.getElementById('adminUser').value;
+      const pass = document.getElementById('adminPass').value;
+
+      if (user === 'admin' && pass === '1234') {
+        localStorage.setItem('adminLoggedIn', 'true');
+        alert('Login successful!');
+        location.href = 'admin-dashboard.html';
+      } else {
+        alert('Invalid admin credentials');
+      }
+    });
+  </script>
+</body>
+</html>

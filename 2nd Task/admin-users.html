@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Manage Users - Admin</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">👥 Manage Users</div>
+    <nav>
+      <a href="admin-dashboard.html">Dashboard</a>
+      <a href="admin-listings.html">Manage Listings</a>
+      <a href="admin-approved.html">Approved Listings</a>
+      <a href="admin-orders.html">Orders</a>
+      <a href="#" id="adminLogout2">Logout</a>
+    </nav>
+  </header>
+  
+  <div class="page-bg" style="background-image: url('user.jpg');">
+    <main class="container">
+      <h1>Registered Students</h1>
+
+      <table id="usersTable">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Uni ID</th>
+            <th>Email</th>
+            <th>Total Listings</th>
+            <th>Actions</th>
+          </tr>
+          </thead>
+        <tbody></tbody>
+      </table>
+    </main>
+  </div>
+  <script src="app.js"></script>
+  <script>
+    adminAuthGuard();
+    window.addEventListener('DOMContentLoaded', loadUsersAdmin);
+    document.getElementById('adminLogout2')?.addEventListener('click', (e)=> { e.preventDefault(); logoutAdmin(); });
+  </script>
+</body>
+</html>

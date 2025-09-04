@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Manage Listings - Admin</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">🛒 Manage Listings</div>
+    <nav>
+      <a href="admin-dashboard.html">Dashboard</a>
+      <a href="admin-users.html">Manage Users</a>
+      <a href="admin-approved.html">Approved Listings</a>
+      <a href="admin-orders.html">Orders</a>
+      <a href="#" id="adminLogout3">Logout</a>
+    </nav>
+  </header>
+  <div class="page-bg" style="background-image: url('item.jpg!w700wp');"> 
+    <main class="container">
+      <h1>All Listings (Pending / Approved / Rejected)</h1>
+      <table id="listingsTable">
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th>Title</th>
+            <th>Seller</th>
+            <th>Price</th>
+            <th>Category</th>
+            <th>Condition</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    adminAuthGuard();
+    window.addEventListener('DOMContentLoaded', loadListingsAdmin);
+    document.getElementById('adminLogout3')?.addEventListener('click', e => { e.preventDefault(); logoutAdmin(); });
+  </script>
+</body>
+</html>
